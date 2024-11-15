@@ -1,0 +1,7 @@
+{
+  "name": "MascotasMobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
