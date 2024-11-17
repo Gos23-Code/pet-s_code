@@ -17,15 +17,19 @@ export class AuthService {
   }
 
   public login(email: string, password: string) {
-    return new Promise((resolve, reject) => {
-      this.authfire
-        .signInWithEmailAndPassword(email, password)
-        .then((res) => resolve(res))
-        .catch((err) => reject(err));
-    });
-  }
+    return this.authfire.signInWithEmailAndPassword(email, password);
+  }  
 
   public logout() {
     return this.authfire.signOut();
   }
+
+  public getCurrentUID(): Promise<string>{
+    return  new Promise((resolve, reject) => {
+      this.authfire.currentUser.then((res) => {
+        resolve(res?. uid || "");
+      });
+    });
+  }
+
 }

@@ -35,14 +35,20 @@ export class LoginPage implements OnInit {
       );
       return;
     }
-
+  
     this.isLoading = true;
     const { email, password } = this.loginForm.value;
-
+  
     try {
-      await this.authService.login(email, password);
-      await this.toastService.mentoast('Inicio de sesión exitoso', 'success');
-      this.router.navigate(['/home']);
+      const userCredential: any = await this.authService.login(email, password);
+      const uid = userCredential?.user?.uid; // Obtener el UID del usuario
+  
+      if (uid) {
+        await this.toastService.mentoast('Inicio de sesión exitoso', 'success');
+        this.router.navigate([`/home/${uid}`]); // Redirigir con el UID en la URL
+      } else {
+        throw new Error('No se pudo obtener el UID del usuario.');
+      }
     } catch (error: any) {
       await this.toastService.mentoast(
         error.message || 'Ocurrió un error al iniciar sesión',

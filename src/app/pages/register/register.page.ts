@@ -96,7 +96,7 @@ export class RegisterPage implements OnInit {
       if (Image && typeof Image !== 'string') {
         ImageUrl = await this.storaService.uploadImage(Image) ?? '';
       } else {
-        const userD = await lastValueFrom(this.firest.collection('Users').doc(this.id).get());
+        const userD = await lastValueFrom(this.firest.collection('users').doc(this.id).get());
         const userDa = userD?.data() as User;
         ImageUrl = userDa?.Image || '';
       }
@@ -125,7 +125,7 @@ export class RegisterPage implements OnInit {
     try {
       await this.loadsrv.show();
 
-      const userD = await lastValueFrom(this.firest.collection('Users').doc(this.id).get());
+      const userD = await lastValueFrom(this.firest.collection('users').doc(this.id).get());
 
       if (userD.exists) {
         const uData = userD.data() as User;
