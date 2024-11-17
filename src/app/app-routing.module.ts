@@ -4,16 +4,24 @@ import { LoadingController } from '@ionic/angular';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+    path: 'home/:id',
+    loadChildren: () =>
+      import('./home/home.module').then((m) => m.HomePageModule),
   },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./pages/register/register.module').then(
+        (m) => m.RegisterPageModule
+      ),
+    },
   {
     path: 'register/:id',
     loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterPageModule),
   },
   {
-    path: 'pet',
-    loadChildren: () => import('./pages/pet/pet.module').then( m => m.PetPageModule)
+    path:'pet',
+    loadChildren: () => import('./pages/pet/pet.module').then(m=> m.PetPageModule),
   },
   
   {

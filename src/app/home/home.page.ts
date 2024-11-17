@@ -1,13 +1,29 @@
+<<<<<<< HEAD
+import { Component, OnInit} from '@angular/core';
+import { AuthService } from '../shared/services/auth/auth.service';
+=======
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from '../shared/services/toast/toast.service';
 import { User } from '../shared/model/user.interface';
+>>>>>>> 32ae936c8a82ca9d39a941d587be0b17b0a12394
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
+<<<<<<< HEAD
+export class HomePage implements OnInit {public id: string = "";
+
+  constructor(private authService: AuthService) {}
+
+  async ngOnInit() {
+
+    this.id = await this.authService.getCurrentUID();
+
+  }
+=======
 export class HomePage implements OnInit {
   userForm: FormGroup;
   users: User[] = [];
@@ -26,6 +42,7 @@ export class HomePage implements OnInit {
       Image: [''], // Avatar
     });
   }
+>>>>>>> 32ae936c8a82ca9d39a941d587be0b17b0a12394
 
   ngOnInit() {}
 
