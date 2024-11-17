@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>pet</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<form action="">
+  <ion-input type="Text" fill="solid" label="Name" labelPlacement="floating" helperText="Enter a name" errorText="Invalid name" ngModel name></ion-input>
+  <br>
+
+  <ion-input type="Text" fill="solid" label="Breed" labelPlacement="floating" helperText="Enter a breed" errorText="Invalid breed" ngModel breed></ion-input>
+  <br>
+
+  <ion-input type="Number" fill="solid" label="Age" labelPlacement="floating" helperText="Enter a age" errorText="Invalid age" ngModel age></ion-input>
+  <br>
+
+  <ion-datetime-button datetime="datetime"></ion-datetime-button>
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <p>Add a date</p>
+      <ion-datetime id="datetime"></ion-datetime>
+    </ng-template>
+  </ion-modal>
+  <br>
+</form>
+</ion-content>
