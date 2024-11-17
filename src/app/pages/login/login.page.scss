@@ -1,0 +1,38 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #d4f1d4, #a3e4a3);
+    height: 100%;
+  }
+  
+  .logo-container {
+    margin-top: 20px;
+  }
+  
+  .logo {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .form-container {
+    margin-top: 20px;
+    width: 90%;
+  }
+  
+  .links {
+    margin-top: 20px;
+    text-align: center;
+  
+    a {
+      color: #3178c6;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+  

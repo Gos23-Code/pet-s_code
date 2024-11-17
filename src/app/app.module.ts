@@ -9,11 +9,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { environment } from 'src/environments/environment';
 import { initializeApp } from 'firebase/app';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [CoreModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [CoreModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
