@@ -6,22 +6,26 @@
 
 <ion-content [fullscreen]="true">
 <form action="">
-  <ion-input type="Text" fill="solid" label="Name" labelPlacement="floating" helperText="Enter a name" errorText="Invalid name" ngModel name></ion-input>
+  <ion-input type="Text" fill="solid" label="Name" labelPlacement="floating" helperText="Enter a name" errorText="Invalid name" ngModel name required></ion-input>
   <br>
 
-  <ion-input type="Text" fill="solid" label="Breed" labelPlacement="floating" helperText="Enter a breed" errorText="Invalid breed" ngModel breed></ion-input>
+  <ion-input type="Text" fill="solid" label="Breed" labelPlacement="floating" helperText="Enter a breed" errorText="Invalid breed" ngModel breed required=""></ion-input>
   <br>
 
-  <ion-input type="Number" fill="solid" label="Age" labelPlacement="floating" helperText="Enter a age" errorText="Invalid age" ngModel age></ion-input>
+  <ion-input type="Number" fill="solid" label="Age" labelPlacement="floating" helperText="Enter a age" errorText="Invalid age" ngModel age required></ion-input>
   <br>
 
-  <ion-datetime-button datetime="datetime"></ion-datetime-button>
-  <ion-modal [keepContentsMounted]="true">
-    <ng-template>
-      <p>Add a date</p>
-      <ion-datetime id="datetime"></ion-datetime>
-    </ng-template>
-  </ion-modal>
-  <br>
+ <h4>BirthDate</h4>
+  <label for="fecha">Add a date:</label>
+<input type="date" id="fecha" name="fecha" required>
+  <br><br><br>
+
+  <label for="photo-upload" style="cursor: pointer;">
+    Add photo: <button type="button"><ion-icon name="camera-reverse-outline"></ion-icon></button>
+  </label>
+  <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+  <br><br>
+
+  <ion-button shape="round" color="success">Submit</ion-button>
 </form>
 </ion-content>
