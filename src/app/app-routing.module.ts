@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 const routes: Routes = [
   {
@@ -11,20 +12,20 @@ const routes: Routes = [
     loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterPageModule),
   },
   {
-    path: 'pet',
-    loadChildren: () => import('./pages/pet/pet/pet.module').then(m => m.PetModule),
+    path:'pet',
+    loadChildren: () => import('./pages/pet/pet.module').then(m=> m.PetPageModule),
   },
-  {
-    path: 'vaccine',
-    loadChildren: () => import('./pages/pet/vaccine/vaccine.module').then(m => m.VaccineModule),
-  },
-
   
   {
     path: '**',
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  {
+    path: 'pet',
+    loadChildren: () => import('./pages/pet/pet.module').then( m => m.PetPageModule)
+  },
+
 ];
 
 @NgModule({
