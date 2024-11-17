@@ -12,12 +12,26 @@
       <form>
         <ion-row>
           <ion-col>
+            <!-- Botón de redirección a la página Register -->
             <ion-button
               size="small"
               color="secondary"
               [routerLink]="['/register', id]"
-              >Update</ion-button
             >
+              Update
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <!-- Botón de redirección a la página Pets -->
+            <ion-button
+              size="small"
+              color="primary"
+              [routerLink]="['/pet', id]"
+            >
+              Go to Pets
+            </ion-button>
           </ion-col>
         </ion-row>
       </form>
