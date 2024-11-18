@@ -19,6 +19,7 @@ export class AuthService {
   public login(email: string, password: string) {
     return this.authfire.signInWithEmailAndPassword(email, password);
   }  
+ 
 
   public logout() {
     return this.authfire.signOut();
