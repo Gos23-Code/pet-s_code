@@ -7,9 +7,11 @@ import { ButtonComponent } from './components/button/button.component';
 import { AvatarComponent } from './components/avatar/avatar.component';
 import { LoadingService } from './controllers/loading.service';
 import { AuthService } from './services/auth/auth.service';
+import { AddpetComponent } from './components/addpet/addpet/addpet.component';
 
 
-const COMPONENTS = [InputComponent, ButtonComponent, AvatarComponent]
+
+const COMPONENTS = [InputComponent, ButtonComponent, AvatarComponent, AddpetComponent]
 
 const MODULE = [ CommonModule, ReactiveFormsModule, IonicModule, FormsModule]
 

@@ -1,0 +1,62 @@
+<br>
+<ion-content>
+  <form [formGroup]="petForm" (ngSubmit)="addPet()">
+    <ion-item>
+      <ion-input formControlName="name" type="text" fill="solid" label="Name" labelPlacement="floating" helperText="Enter a name" errorText="Invalid name" ngModel name required></ion-input>
+    </ion-item>
+    <br>
+
+    <ion-item>
+      <ion-input formControlName="breed" type="text" fill="solid" label="Breed" labelPlacement="floating" helperText="Enter a breed" errorText="Invalid name" ngModel breed required></ion-input>
+    </ion-item>
+    <br>
+
+    <ion-item>
+            <ion-input formControlName="age" type="text" fill="solid" label="Age" labelPlacement="floating" helperText="Enter a age" errorText="Invalid name" ngModel age required></ion-input>
+    </ion-item>
+    <br>
+
+    <ion-item>
+      <ion-input formControlName="birthdate" fill="solid" label="Birthdate" labelPlacement="floating" helperText="Enter a birthdate" errorText="Invalid name" ngModel birthdate required readonly [value]="petForm.get('birthdate')?.value || 'Seleccionar Fecha'"(click)="openDatePicker()" ></ion-input>
+    </ion-item>
+    <br>
+
+    <div class="photo" (click)="PhotoUpload()">
+      <img [src]="selectedPhoto ? selectedPhoto : 'assets/icon/camera.ico'" alt="Photo"/>
+      <input type="file" hidden #photoInput accept="image/*" (change)="onPhotoSelected($event)">
+    </div>
+    <ion-button expand="block" type="submit" [disabled]="petForm.invalid">Add pet</ion-button>
+  </form>
+
+  <!-- Listar -->
+  <ion-list>
+    <ion-item *ngFor="let pet of pets">
+      <ion-thumbnail slot="start" *ngIf="pet.photo">
+        <img [src]="pet.photo" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ pet.name }}</h2>
+        <p>{{ pet.breed }} - {{ pet.age }} ages</p>
+        <p>Birthdate: {{ pet.birthdate | date }}</p>
+      </ion-label>
+      <ion-button color="danger" (click)="deletePet(pet.id)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Carta -->
+  <div class="date-picker-card" *ngIf="isDatePickerOpen">
+    <ion-card>
+      <ion-card-content>
+        <ion-datetime (ionChange)="selectDate($event)" display-format="DD/MM/YYYY"></ion-datetime>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pets</ion-title>
+  </ion-toolbar>
+</ion-header>
