@@ -17,7 +17,7 @@
   font-size: 16px;
   line-height: 22px;
 
-  color: #8c8c8c;
+  color: #ffffff;
 
   margin: 0;
 }
@@ -25,3 +25,21 @@
 #container a {
   text-decoration: none;
 }
+
+/* home.page.scss */
+ion-menu {
+  --background: #f4f4f4; /* Fondo del menú */
+}
+
+ion-item {
+  --color: #ffffff; /* Color de texto de los ítems */
+}
+
+ion-header {
+  --background: #008CBA; /* Color de fondo de la barra del menú */
+}
+
+ion-title {
+  color: white;
+}
+

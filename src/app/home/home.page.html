@@ -1,40 +1,53 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
+    <!-- Menú a la izquierda -->
+    <ion-buttons slot="start">
+      <ion-menu-toggle auto-hide="false">
+        <ion-button>
+          <ion-icon slot="icon-only" name="menu"></ion-icon>
+        </ion-button>
+      </ion-menu-toggle>
+    </ion-buttons>
+    
+    <!-- Título -->
+    <ion-title class="app-title">
+      Welcome to pets app :)
     </ion-title>
+
+    <!-- Botón de logout a la derecha -->
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-card>
     <ion-card-content>
-      <form>
-        <ion-row>
-          <ion-col>
-            <!-- Botón de redirección a la página Register -->
-            <ion-button
-              size="small"
-              color="secondary"
-              [routerLink]="['/register', id]"
-            >
-              Update
-            </ion-button>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <!-- Botón de redirección a la página Pets -->
-            <ion-button
-              size="small"
-              color="primary"
-              [routerLink]="['/pet', id]"
-            >
-              Go to Pets
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </form>
+      <h2 *ngIf="userName;">Welcome, Dear User</h2>
+      
     </ion-card-content>
   </ion-card>
 </ion-content>
+
+<!-- Sidebar/Menu -->
+<ion-menu side="start" menuId="first" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item [routerLink]="['/register']">Update info</ion-item>
+      <ion-item [routerLink]="['/vaccune']">Add and edit vaccunes</ion-item>
+      <ion-item [routerLink]="['/pet']">Register Pets</ion-item>
+      <ion-item [routerLink]="['/user-info']">Show Info User</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main-content"></ion-router-outlet>

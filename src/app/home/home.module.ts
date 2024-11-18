@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { HomePageRoutingModule } from './home-routing.module';
+import { SharedModule } from '../shared/shared.module';
+
+
 import { HomePage } from './home.page';
 
-import { HomePageRoutingModule } from './home-routing.module';
+// Importar los componentes existentes
 
 
 @NgModule({
@@ -12,8 +16,15 @@ import { HomePageRoutingModule } from './home-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    SharedModule
+   
+    
+
   ],
-  declarations: [HomePage]
+  declarations: [
+    HomePage,
+
+  ]
 })
 export class HomePageModule {}
