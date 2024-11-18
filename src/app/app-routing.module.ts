@@ -27,13 +27,15 @@ const routes: Routes = [
       import('./pages/login/login.module').then((m) => m.LoginPageModule),
   },
   {
-    path: '**',
-    redirectTo: 'login',
-    pathMatch: 'full',
-  },  {
     path: 'resetpassword',
     loadChildren: () => import('./pages/resetpassword/resetpassword.module').then( m => m.ResetpasswordPageModule)
   },
+  {
+    path: '**',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+ 
 
 ];
 
