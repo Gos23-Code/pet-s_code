@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PetService } from 'src/app/shared/services/pet.service';
+import { LoadingService } from 'src/app/shared/controllers/loading.service';
 
 @Component({
   selector: 'app-addpet',
@@ -15,9 +16,9 @@ export class AddpetComponent implements OnInit {
 
   @ViewChild('photoInput') photoInput!: ElementRef;
 
-  constructor(private fb: FormBuilder, private petService: PetService) {
+  constructor(private fb: FormBuilder, private petService: PetService, private readonly loadingSrv: LoadingService) {
     this.petForm = this.fb.group({
-      name: ['', Validators.required],
+      name: ['', Validators.required], 
       breed: ['', Validators.required],
       age: ['', [Validators.required, Validators.min(0)]],
       birthdate: ['', Validators.required],
@@ -77,19 +78,24 @@ export class AddpetComponent implements OnInit {
     };
 
     try {
+      await this.loadingSrv.show();
       await this.petService.addPet(petData);
       this.pets.push(petData);
       this.petForm.reset();
       this.selectedPhoto = null;
+      await this.loadingSrv.dismiss();
     } catch (error) {
+      await this.loadingSrv.dismiss();
       console.error('Error al registrar la mascota:', error);
     }
   }
 
   async deletePet(petId: string) {
     try {
+      await this.loadingSrv.show();
       await this.petService.deletePet(petId);
       this.pets = this.pets.filter((pet) => pet.id !== petId);
+      await this.loadingSrv.dismiss();
     } catch (error) {
       console.error('Error al eliminar la mascota:', error);
    }
