@@ -19,6 +19,14 @@ export class AuthService {
   public login(email: string, password: string) {
     return this.authfire.signInWithEmailAndPassword(email, password);
   }  
+  public sendPasswordResetEmail(email: string) {
+    return new Promise((resolve, reject) => {
+      this.authfire.sendPasswordResetEmail(email)
+      .then((res) => resolve(res))
+      .catch((err) => reject(err));
+    });
+  }
+
  
 
   public logout() {

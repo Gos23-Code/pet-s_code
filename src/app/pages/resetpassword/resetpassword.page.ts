@@ -28,5 +28,15 @@ export class ResetpasswordPage implements OnInit {
       email: this.email,
     });
   }
-
+  public async sendResetEmail() {
+    try {
+      await this.loadingSrv.show();
+      await this.authSrv.sendPasswordResetEmail(this.email.value);
+      console.log('Password reset email sent');
+      await this.loadingSrv.dismiss();
+    } catch (error) {
+      console.error('Error sending password reset email', error);
+      await this.loadingSrv.dismiss();
+    }
+  }
 }
