@@ -39,12 +39,14 @@ const routes: Routes = [
     canActivate: [AuthGuard], // Si es necesario proteger la ruta
   },
   {
+    path: 'resetpassword',
+    loadChildren: () => import('./pages/resetpassword/resetpassword.module').then( m => m.ResetpasswordPageModule)
+  },
+  {
     path: '**', // Ruta por defecto si no se encuentra una coincidencia
     redirectTo: 'login',
     pathMatch: 'full',
   },
-  
-
 ];
 
 @NgModule({

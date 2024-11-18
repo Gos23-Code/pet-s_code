@@ -13,7 +13,9 @@
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
         <!-- Campo Email -->
         <ion-item lines="none">
-          <ion-label position="floating" class="TextColor">Correo Electrónico</ion-label>
+          <ion-label position="floating" class="TextColor"
+            >Correo Electrónico</ion-label
+          >
           <ion-input formControlName="email" type="email"></ion-input>
         </ion-item>
         <ion-note
@@ -46,7 +48,7 @@
         </ion-button>
 
         <!-- Botón para recuperar contraseña -->
-        <ion-button expand="block" fill="clear" color="succes" routerLink="/recover-password">
+        <ion-button expand="block" fill="clear" color="succes" [routerLink]="['/resetpassword']">
           ¿Olvidaste tu contraseña?
         </ion-button>
       </form>
@@ -54,7 +56,9 @@
       <!-- Enlace para registrarse -->
       <div class="links">
         <p>¿No tienes cuenta?</p>
-        <ion-button expand="block" color="light" routerLink="/register">Regístrate</ion-button>
+        <ion-button expand="block" color="light" routerLink="/register"
+          >Regístrate</ion-button
+        >
       </div>
     </ion-card-content>
   </ion-card>

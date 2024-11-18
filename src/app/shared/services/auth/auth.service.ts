@@ -31,7 +31,16 @@ export class AuthService {
   // Método para iniciar sesión con email y password
   public login(email: string, password: string) {
     return this.authfire.signInWithEmailAndPassword(email, password);
-  }
+  }  
+
+
+public sendPasswordResetEmail(email: string) {
+  return new Promise((resolve, reject) => {
+    this.authfire.sendPasswordResetEmail(email)
+    .then((res) => resolve(res))
+    .catch((err) => reject(err));
+    });
+  }
 
   // Método para cerrar sesión
   public logout() {
@@ -74,4 +83,6 @@ export class AuthService {
     public getAuthenticatedUser(): Observable<any> {
       return this.authfire.authState;  // Devuelve el estado de autenticación del usuario
     }
+
+    
 }
