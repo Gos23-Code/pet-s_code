@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';  // Para acceder a Firestore
 import { UserData } from '../auth/model/user-model';  // Importa la interfaz de Usuario
+import { Observable } from 'rxjs';  // Importa Observable desde RxJS
+
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +25,8 @@ export class AuthService {
         .catch((err) => reject(err));
     });
   }
+
+  
 
   // Método para iniciar sesión con email y password
   public login(email: string, password: string) {
@@ -66,4 +70,8 @@ export class AuthService {
         .catch((error) => reject(error));
     });
   }
+    // Método para obtener el usuario autenticado
+    public getAuthenticatedUser(): Observable<any> {
+      return this.authfire.authState;  // Devuelve el estado de autenticación del usuario
+    }
 }

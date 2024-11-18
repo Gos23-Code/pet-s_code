@@ -1,6 +1,21 @@
-<ion-avatar (click)="file.click()">
+<!-- Avatar for display (view-only mode) -->
+<ion-avatar *ngIf="onlyview">
   <img [src]="control.value || image" />
 </ion-avatar>
 
+<!-- Avatar for editing (in registration form or editable state) -->
+<ion-avatar (click)="triggerFileInputClick()" *ngIf="!onlyview">
+  <img [src]="control.value || image" />
+</ion-avatar>
 
-<input [accept]="mimetype" [multiple]="false" (change)="uploadImage($event)" type="file" #file style="opacity: 0;">
+<!-- Hidden file input for uploading image, only when not in view-only mode -->
+<input 
+  #fileInput 
+  [accept]="mimetype" 
+  [multiple]="false" 
+  (change)="uploadImage($event)" 
+  type="file" 
+  style="opacity: 0;" 
+  [disabled]="onlyview" 
+  *ngIf="!onlyview"
+/>

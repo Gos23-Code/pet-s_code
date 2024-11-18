@@ -12,10 +12,16 @@ export class InputComponent implements OnInit {
   @Input() label: string = "";
   @Input() control = new FormControl();
   @Input() type: buttontype = "text";
+  @Input() disable: boolean = false;  // Definir el @Input() para 'disable'
+
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.disable) {
+      this.control.disable();  // This will disable the form control
+    }
+  }
 
   public setValue(event: any) {
     this.control.setValue(event.target.value);
