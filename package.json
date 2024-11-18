@@ -27,6 +27,8 @@
     "@capacitor/haptics": "6.0.1",
     "@capacitor/keyboard": "6.0.2",
     "@capacitor/status-bar": "6.0.1",
+    "@capawesome-team/capacitor-file-opener": "^6.1.0",
+    "@capawesome/capacitor-file-picker": "^6.1.0",
     "@ionic/angular": "^8.0.0",
     "@supabase/supabase-js": "^2.46.1",
     "firebase": "^10.14.1",

@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
-
-import { VaccunePageRoutingModule } from './vaccune-routing.module';
-
+import { VaccuneRoutingModule } from './vaccune-routing.module';
 import { VaccunePage } from './vaccune.page';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   imports: [
-    CommonModule,
     FormsModule,
-    IonicModule,
-    VaccunePageRoutingModule
+    VaccuneRoutingModule,
+    SharedModule,
+    ReactiveFormsModule,
+    IonicModule
   ],
-  declarations: [VaccunePage]
+  declarations: [VaccunePage]  // No es necesario declarar AddComponent ni ListComponent aquí
 })
-export class VaccunePageModule {}
+export class VaccuneModule {}

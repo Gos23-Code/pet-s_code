@@ -22,11 +22,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/pet/pet.module').then(m => m.PetPageModule),
     canActivate: [AuthGuard], // Protege esta ruta con el guard si es necesario
   },
+
   {
-    path: 'vaccune', // Asumiendo que el nombre correcto es 'vaccune' o lo que corresponda
-    loadChildren: () => import('./pages/vaccune/vaccune.module').then(m => m.VaccunePageModule),
-    canActivate: [AuthGuard],
+    path: 'vaccune',
+    loadChildren: () =>
+      import('./pages/vaccune/vaccune.module').then((m) => m.VaccuneModule),
+    canActivate: [AuthGuard], // Asegúrate de que el guard funciona si es necesario
+
   },
+
+  
+  
   {
     path: 'user-info',
     loadChildren: () => import('./pages/user-info/user-info.module').then(m => m.UserInfoPageModule),
@@ -36,10 +42,8 @@ const routes: Routes = [
     path: '**', // Ruta por defecto si no se encuentra una coincidencia
     redirectTo: 'login',
     pathMatch: 'full',
-  },  {
-    path: 'user-info',
-    loadChildren: () => import('./pages/user-info/user-info.module').then( m => m.UserInfoPageModule)
   },
+  
 
 ];
 

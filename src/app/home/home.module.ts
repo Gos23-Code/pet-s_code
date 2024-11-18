@@ -8,8 +8,6 @@ import { SharedModule } from '../shared/shared.module';
 
 import { HomePage } from './home.page';
 
-// Importar los componentes existentes
-
 
 @NgModule({
   imports: [
